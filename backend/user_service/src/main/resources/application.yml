@@ -1,8 +1,10 @@
+server:
+  port: 8081
 spring:
   application:
     name: user_service
   r2dbc:
-    url: r2dbc:mysql://localhost:3306/db_online_store
+    url: r2dbc:mysql://localhost:3306/db_users_store
     username: root
     password: mysqladmin
     pool:

@@ -29,7 +29,7 @@ public class OrderServiceImpl implements OrderService {
                                 .bodyToMono(SecurityProperties.User.class)
                                 .map(user -> {
                                     return String.format(
-                                            "Hola usuario %s, tu pedido N° %d se realizó con éxito",
+                                            "Hola %s, tu pedido N° %d se realizó con éxito",
                                             user.getName(), savedOrder.getId());
                                 })
                                 .doOnNext(kafkaProducerService::sendNotification)

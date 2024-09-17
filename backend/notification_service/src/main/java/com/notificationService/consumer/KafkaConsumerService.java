@@ -14,9 +14,7 @@ public class KafkaConsumerService {
 
     @KafkaListener(topics = "notification-topic", groupId = "notification-service")
     public void listen(String message) {
-        // Aquí puedes implementar la lógica para manejar las notificaciones.
         System.out.println("Mensaje recibido: " + message);
-        // Implementar la lógica para enviar la notificación a través del puerto o de la manera que necesites.
         notificationService.sendNotification(message);
     }
 }

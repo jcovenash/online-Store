@@ -19,3 +19,23 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       group-id: order-service
+  cloud:
+    gateway:
+      routes:
+        - id: orders
+          uri: http://localhost:8082
+          predicates:
+            - Path=/orders/**
+          filters:
+            - StripPrefix=1
+      cors:
+        allowedOrigins: "http://localhost:4200"
+        allowedMethods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - OPTIONS
+        allowedHeaders:
+          - "*"
+        allowCredentials: true

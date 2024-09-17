@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
 
   buyProduct(product: any): void {
     this.http.post('http://localhost:8082/orders', {
-      userId: 8, // Ejemplo de userId
+      userId: 4, // Ejemplo de userId
       product: product.name,
       price: product.price
     }).subscribe(response => {
